@@ -1,10 +1,14 @@
 import { HeroSlider } from './components'
-import './App.css'
+import './styles/style.sass'
 
 function App() {
 	return (
 		<div className='App'>
-			<HeroSlider />
+			<main className='hero'>
+				<div className='container'>
+					<HeroSlider />
+				</div>
+			</main>
 		</div>
 	)
 }

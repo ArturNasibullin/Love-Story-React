@@ -1,5 +1,5 @@
+export { default as HeroSlider } from './HeroSlider/HeroSlider.jsx'
 export { default as Navbar } from './Navbar.jsx'
-export { default as HeroSlider } from './HeroSlider.jsx'
 export { default as Card } from './Card.jsx'
 export { default as Product } from './Product.jsx'
 export { default as Layout } from './Layout.jsx'
