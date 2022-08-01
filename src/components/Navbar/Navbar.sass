@@ -1,0 +1,101 @@
+.navbar
+	width: 100%
+	background: rgba(255,255,255, 0.25)
+	backdrop-filter: blur(4px)
+	-webkit-backdrop-filter: blur(4px)
+	border: 1px solid rgba(255,255,255, 0.18)
+	position: fixed
+	top: 0
+	z-index: 2
+	&-grid
+		display: grid
+		grid-template-columns: 1fr 8fr 3fr
+		padding: 1rem 1rem
+		font-size: 1.4rem
+		text-transform: uppercase
+		align-items: center
+		min-height: 100px
+		max-width: 1165px
+		@media screen and (max-width: 900px)
+			grid-template-columns: 1fr 11fr
+	&-links
+		display: flex
+		flex-flow: row wrap
+		justify-content: flex-end
+		transition: all 0.3s
+		&__item
+			margin-right: 30px
+			a
+				position: relative
+				&::before
+					content: ''
+					position: absolute
+					width: 0
+					height: 1px
+					top: 100%
+					background: #000000
+					left: 0px
+					right: 0
+					transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1)
+				&:hover
+					&::before
+						width: 100%
+						right: 0px
+		@media screen and (max-width: 900px)
+			display: none
+	&-menu
+		justify-self: end
+		width: 55px
+		height: 55px
+		border-radius: 50%
+		position: relative
+		display: flex
+		justify-content: center
+		align-items: center
+		background-color: var(--colors__border)
+		@media screen and (min-width: 900px)
+			display: none
+		svg
+			width: 70%
+			height: 70%
+			color: var(--colors__white)
+		div
+			position: fixed
+			top: 0
+			bottom: 0
+			right: 0
+			z-index: 5
+			padding: 1rem
+			width: 35%
+			height: 100vh
+			display: flex
+			justify-content: flex-end
+			align-items: flex-end
+			flex-direction: column
+			background-color: var(--colors__white)
+			box-shadow: 0 0 20px	rgba(168,168,168, 0.35)
+			svg
+				width: 40px
+				height: 40px
+				color: var(--colors__primary)
+				margin: 0.5rem 1 rem
+			ul
+				margin: 0
+				padding: 0
+				height: 100%
+				width: 100%
+				display: flex
+				justify-content: flex-start
+				align-items: flex-start
+				flex-direction: column
+				li
+					margin: 1.1rem
+					a
+						color: var(--colors__text)
+						text-decoration: none
+						font-size: 1.5rem
+						text-transform: uppercase
+						font-weight: 500
+						transition: all .3s ease-in-out
+						&:hover
+							color: var(--secondary-color)
