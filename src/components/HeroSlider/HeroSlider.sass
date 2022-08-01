@@ -20,6 +20,31 @@
 	&__subtitle
 		font-size: 3rem
 	img
+		min-height: 50rem
 		max-height: 50rem
-	&-btns
-		width: 60%
+	&-navigation
+		display: flex
+		flex-direction: row
+		justify-content: center
+		align-items: center
+		margin-top: 1rem
+		div
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 50px
+			height: 50px
+			border: 1px solid
+			border-color: var(--colors__border)
+			border-radius: 50%
+			background-color: var(--colors__white)
+			margin: 1rem
+			transition: all 0.3s ease-in-out
+			svg
+				width: 20px
+				height: 20px
+				color: var(--colors__dark-gray)
+			&:hover
+				background-color: var(--colors__primary)
+				svg
+					color: var(--colors__white)

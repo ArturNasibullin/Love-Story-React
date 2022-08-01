@@ -30,7 +30,7 @@ const HeroSlider = () => {
 					<img src={urlFor(ban.imageurl)} alt={ban.name} />
 				</div>
 			)}
-			<div className='hero-slider-btns'>
+			<div className='hero-slider-navigation'>
 				<div onClick={() => handleClick(currentIndex === 0 ? banner.length - 1 : currentIndex - 1)}>
 					<HiChevronLeft />
 				</div>
