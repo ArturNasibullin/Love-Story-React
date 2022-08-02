@@ -6,34 +6,34 @@ import './Advantages.sass'
 const Advantages = () => {
 	return (
 		<>
-			<section class='advantages'>
-				<div class='container'>
-					<div class='advantages-grid'>
-						<div class='advantages-item'>
-							<p class='advantages-item__icon'>
+			<section className='advantages'>
+				<div className='container'>
+					<div className='advantages-grid'>
+						<div className='advantages-item'>
+							<p className='advantages-item__icon'>
 								<FaCar />
 							</p>
-							<div class='advantages-item__text'>
-								<h3 class='advantages-item__title'>Быстрая доставка</h3>
-								<p class='advantages-item__subtitle'>По всей России</p>
+							<div className='advantages-item__text'>
+								<h3 className='advantages-item__title'>Быстрая доставка</h3>
+								<p className='advantages-item__subtitle'>По всей России</p>
 							</div>
 						</div>
-						<div class='advantages-item'>
-							<p class='advantages-item__icon'>
+						<div className='advantages-item'>
+							<p className='advantages-item__icon'>
 								<FaDollarSign />
 							</p>
-							<div class='advantages-item__text'>
-								<h3 class='advantages-item__title'>Возврат денег</h3>
-								<p class='advantages-item__subtitle'>В течение 14 дней</p>
+							<div className='advantages-item__text'>
+								<h3 className='advantages-item__title'>Возврат денег</h3>
+								<p className='advantages-item__subtitle'>В течение 14 дней</p>
 							</div>
 						</div>
-						<div class='advantages-item'>
-							<p class='advantages-item__icon'>
+						<div className='advantages-item'>
+							<p className='advantages-item__icon'>
 								<FaLock />
 							</p>
-							<div class='advantages-item__text'>
-								<h3 class='advantages-item__title'>Безопасные платежи</h3>
-								<p class='advantages-item__subtitle'>На различных платформах</p>
+							<div className='advantages-item__text'>
+								<h3 className='advantages-item__title'>Безопасные платежи</h3>
+								<p className='advantages-item__subtitle'>На различных платформах</p>
 							</div>
 						</div>
 					</div>
