@@ -14,7 +14,7 @@
 		flex-direction: column
 		text-align: center
 		padding: 0 60px
-		@media only screen and (max-width: 979px)
+		@media only screen and (max-width: 900px)
 			width: 100%
 			margin-top: 2rem
 	&__title
@@ -27,31 +27,41 @@
 	img
 		min-height: 50rem
 		max-height: 50rem
-	&-navigation
-		display: flex
-		flex-direction: row
-		justify-content: center
-		align-items: center
-		margin-top: 1rem
-		@media only screen and (max-width: 979px)
-			margin-top: 2rem
-		div
-			display: flex
-			justify-content: center
-			align-items: center
-			width: 50px
-			height: 50px
-			border: 1px solid
-			border-color: var(--colors__border)
-			border-radius: 50%
-			background-color: var(--colors__white)
-			margin: 1rem
-			transition: all 0.3s ease-in-out
-			svg
-				width: 20px
-				height: 20px
-				color: var(--colors__dark-gray)
-			&:hover
-				background-color: var(--colors__primary)
-				svg
-					color: var(--colors__white)
+
+.swiper
+	margin-top: 15rem
+	padding-bottom: 1rem
+	&-wrapper
+		padding-bottom: 5rem
+.swiper-button-prev, .swiper-button-next
+	width: 50px
+	height: 50px
+	border: 1px solid
+	border-color: var(--colors__border)
+	border-radius: 50%
+	background-color: var(--colors__white)
+	transition: all 0.3s ease-in-out
+	display: flex
+	justify-content: center
+	align-items: center
+	@media screen and (max-width: 900px)
+		display: none
+	&::after
+		content: ''
+		color: var(--colors__primary)
+		border-style: solid
+		border-width: 0.10em 0.10em 0 0
+		display: inline-block
+		height: 0.35em
+		width: 0.35em
+		position: relative
+		top: 0em
+		vertical-align: top
+		left: 0.10em
+		transform: rotate(-135deg)
+.swiper-button-next
+	&::after
+		left: -0.05em
+		transform: rotate(45deg)
+.swiper-pagination-bullet
+	background: var(--colors__border)

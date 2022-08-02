@@ -3,9 +3,13 @@
 		margin: 100px 0 50px
 		display: grid
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
-		column-gap: 80px
+		column-gap: 8rem
+		@media only screen and (max-width: 900px)
+			grid-template-columns: 1fr
+			row-gap: 5rem
 	&__img
-		height: 100%
+		@media only screen and (max-width: 900px)
+			grid-row: 2
 	&__title
 		line-height: 1.1
 		font-size: 4.5rem

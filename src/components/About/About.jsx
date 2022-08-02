@@ -14,8 +14,7 @@ const About = () => {
 	}, [])
 	return (
 		<>
-			{console.log(about)}
-			{about?.map((about, index) => (
+			{about?.map((about) => (
 				<section className='about' key={about._id}>
 					<div className='container'>
 						<div className='about-grid'>
