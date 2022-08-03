@@ -1,7 +1,10 @@
+import { MdWhatshot } from 'react-icons/md'
+
 export default {
 	name: 'banner',
 	title: 'Banner',
 	type: 'document',
+	icon: MdWhatshot,
 	fields: [
 		{
 			name: 'name',
