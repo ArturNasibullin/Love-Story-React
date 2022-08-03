@@ -1,25 +1,20 @@
 import { MdInsertEmoticon } from 'react-icons/md'
 
 export default {
-	name: 'ad',
+	name: 'promo',
 	type: 'document',
-	title: 'Ad',
+	title: 'Акции и скидки на главной',
 	icon: MdInsertEmoticon,
 	fields: [
 		{
 			name: 'heading',
 			type: 'string',
-			title: 'Heading',
+			title: 'Заголовок',
 		},
 		{
 			name: 'tagline',
 			type: 'text',
-			title: 'Tagline',
-		},
-		{
-			name: 'illustration',
-			type: 'figure',
-			title: 'Illustration',
+			title: 'Подробности',
 		},
 	],
 }

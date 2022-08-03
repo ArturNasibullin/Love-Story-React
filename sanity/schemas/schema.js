@@ -9,7 +9,7 @@ import category from './category'
 import product from './product'
 import vendor from './vendor'
 import social from './social'
-import ad from './ad'
+import promo from './promo'
 import sizes from './sizes'
 
 import siteConfig from './siteConfig'
@@ -29,7 +29,7 @@ export default createSchema({
 		vendor,
 		category,
 		social,
-		ad,
+		promo,
 		sizes,
 
 		blockContent,

@@ -31,7 +31,7 @@ const Trand = () => {
 					className='trand-slider'
 					modules={[Navigation, Pagination, Autoplay]}
 					spaceBetween={40}
-					slidesPerView={4}
+					slidesPerView={1}
 					grabCursor={true}
 					loop={true}
 					breakpoints={{
@@ -39,7 +39,7 @@ const Trand = () => {
 							slidesPerView: 1,
 							spaceBetween: 20,
 						},
-						768: {
+						767: {
 							slidesPerView: 2,
 							spaceBetween: 20,
 						},
@@ -55,7 +55,7 @@ const Trand = () => {
 						pauseOnMouseEnter: true,
 					}}>
 					{trand?.map((trand) => (
-						<SwiperSlide className='trand-slider-item' key={trand._key}>
+						<SwiperSlide className='trand-slider-item' key={trand._id}>
 							<a href={trand.slug.current} className='trand-slider-item__link'>
 								<img src={urlFor(trand.images[0])} alt='' className='trand-slider-item__img' />
 								<div className='trand-slider-item__quickview'>
