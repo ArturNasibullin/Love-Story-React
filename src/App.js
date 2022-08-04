@@ -1,4 +1,4 @@
-import { Navbar, HeroSlider, Advantages, About, Trand, Promo } from './components'
+import { Navbar, HeroSlider, Advantages, About, Trand, Promo, Contacts } from './components'
 import './styles/style.sass'
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
 			<About />
 			<Trand />
 			<Promo />
+			<Contacts />
 		</div>
 	)
 }

@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@chec/commerce.js": "^2.8.0",
 		"@sanity/cli": "^2.30.2",
 		"@sanity/client": "^3.2.0",
 		"@sanity/image-url": "^1.0.1",
