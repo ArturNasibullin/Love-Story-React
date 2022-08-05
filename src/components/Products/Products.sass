@@ -1,0 +1,14 @@
+.products
+	&-content
+		display: grid
+		grid-template-columns: repeat(4, 1fr)
+		align-items: center
+		justify-content: center
+		grid-column-gap: 2rem
+		@media only screen and (max-width: 900px)
+			grid-template-columns: repeat(3, 1fr)
+		@media only screen and (max-width: 768px)
+			grid-template-columns: repeat(2, 1fr)
+		@media only screen and (max-width: 450px)
+			grid-template-columns: 1fr
+			place-items: start center

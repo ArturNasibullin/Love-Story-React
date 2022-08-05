@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Navbar, HeroSlider, Advantages, About, Trand, Promo, Contacts } from './components'
+import { Navbar, HeroSlider, Advantages, About, Trand, Promo, Contacts, Products } from './components'
 
 import { commerce } from './lib/commerce'
 import './styles/style.sass'
@@ -17,8 +17,6 @@ function App() {
 		fetchProducts()
 	}, [])
 
-	console.log(products)
-
 	return (
 		<div className='App'>
 			<Navbar />
@@ -32,6 +30,7 @@ function App() {
 			<Trand />
 			<Promo />
 			<Contacts />
+			<Products products={products} />
 		</div>
 	)
 }
