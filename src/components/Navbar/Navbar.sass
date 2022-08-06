@@ -43,6 +43,40 @@
 						right: 0px
 		@media screen and (max-width: 900px)
 			display: none
+	&-cart
+		justify-self: flex-end
+		position: relative
+		display: flex
+		align-items: center
+		&::before
+			content: ''
+			position: absolute
+			width: 0
+			height: 1px
+			top: 100%
+			background: #000000
+			left: 0px
+			right: 0
+			transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1)
+		&:hover
+			&::before
+				width: 100%
+				right: 0px
+		svg
+			margin-right: 10px
+			width: 20px
+			height: 20px
+		&_badge
+			position: absolute
+			top: -12px
+			left: 12px
+			background: var(--colors__primary)
+			width: 18px
+			height: 18px
+			text-align: center
+			font-size: 1.2rem
+			border-radius: 50%
+			line-height: 1.5
 	&-menu
 		justify-self: end
 		width: 55px

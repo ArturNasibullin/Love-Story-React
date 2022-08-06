@@ -1,8 +1,9 @@
 import React from 'react'
 import './Product.sass'
 
-const Product = ({ product }) => {
-	console.log(product)
+const Product = ({ product, onAddToCart }) => {
+	const handleAddToCart = () => onAddToCart(product.id, 1)
+	// console.log(product.id)
 	return (
 		<>
 			<div className='product-img'>
@@ -18,7 +19,9 @@ const Product = ({ product }) => {
 			<p className='product-new_price'>₽ {product.price.raw}</p>
 			{/* <p className='product-description text' dangerouslySetInnerHTML={{ __html: product.description }}></p> */}
 
-			<button className='btn btn--add-to-cart product-btn'>Добавить в корзину</button>
+			<button className='btn btn--add-to-cart product-btn' onClick={handleAddToCart}>
+				Добавить в корзину
+			</button>
 		</>
 	)
 }

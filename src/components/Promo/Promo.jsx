@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { urlFor, client } from '../../lib/client'
+import { client } from '../../lib/client'
 
 import images from '../../assets/images'
 import './Promo.sass'

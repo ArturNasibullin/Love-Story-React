@@ -3,7 +3,7 @@ import React from 'react'
 import Product from './Product/Product'
 import './Products.sass'
 
-const Products = ({ products }) => {
+const Products = ({ products, onAddToCart }) => {
 	return (
 		<section className='products'>
 			<div className='container'>
@@ -15,7 +15,7 @@ const Products = ({ products }) => {
 				<div className='products-content'>
 					{products.map((product) => (
 						<div className='product-card' key={product.id}>
-							<Product product={product} />
+							<Product product={product} onAddToCart={onAddToCart} />
 						</div>
 					))}
 				</div>

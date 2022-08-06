@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { HiMenu, HiX } from 'react-icons/hi'
+import { HiMenu, HiX, HiShoppingCart } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 
 import './Navbar.sass'
 import images from '../../assets/images'
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
 	const [toggle, setToggle] = useState(false)
 
 	return (
@@ -22,6 +22,13 @@ const Navbar = () => {
 							</li>
 						))}
 					</ul>
+					<div className='navbar-cart'>
+						<a href='#'>
+							<HiShoppingCart />
+							<span>корзина</span>
+						</a>
+						<span className='navbar-cart_badge'>{totalItems}</span>
+					</div>
 					<div className='navbar-menu'>
 						<HiMenu
 							onClick={() => {
