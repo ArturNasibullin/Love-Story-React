@@ -29,8 +29,6 @@ function App() {
 		fetchCart()
 	}, [])
 
-	console.log(cart)
-
 	return (
 		<div className='App'>
 			<Navbar totalItems={cart.total_items} />
@@ -39,7 +37,7 @@ function App() {
 					<HeroSlider />
 				</div>
 			</main>
-			<Cart />
+			<Cart cart={cart} />
 			<Advantages />
 			<Products products={products} onAddToCart={handleAddToCart} />
 			<About />

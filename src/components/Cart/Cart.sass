@@ -3,9 +3,11 @@
 		display: grid
 		grid-template-columns: 60% 40%
 		grid-column-gap: 3rem
+		grid-row-gap: 2rem
 		align-items: center
 		font-family: var(--font__corm)
 	&-item
+		grid-column: 1
 		display: grid
 		grid-template-columns: 20% 25% 35% 10%
 		grid-template-rows: auto
@@ -18,22 +20,19 @@
 			grid-column: 2/ span 3
 			grid-row: 1
 		&__quantity
-			p
+			&-text
 				margin-bottom: 10px
-			input
-				padding: 0
-				height: 25px
-				margin: 0 10px
-				width: 5rem
+			&-num
+				display: inline-block
+				margin: 0 5px
+				width: 3rem
 				text-align: center
-				border: 1px solid var(--colors__primary)
-				padding: 0
-				font-size: 1.6rem
+				font-size: 2rem
 		&__price
 			&-text
 				margin-bottom: 1rem
-			&-number
-				font-size: 2.2rem
+			&-num
+				font-size: 2.6rem
 		&__buttons
 			grid-column: 4
 			grid-row: 1 / span 2
@@ -41,7 +40,13 @@
 			flex-direction: column
 			justify-content: space-evenly
 			align-items: center
-			opacity: 0.5
+			opacity: 0.4
+			button
+				cursor: pointer
+				outline: none
+				background-color: transparent
+				border-radius: 5px
+				border: none
 			svg
 				font-size: 2rem
 	&-checkout
