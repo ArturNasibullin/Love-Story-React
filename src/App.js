@@ -11,36 +11,38 @@ function App() {
 	const [cart, setCart] = useState({})
 
 	const fetchProducts = async () => {
-		const { data } = await commerce.products.list()
-		setProducts(data)
+		const response = await commerce.products.list()
+
+		setProducts((response && response.data) || [])
 	}
 
 	const fetchCart = async () => {
-		setCart(await commerce.cart.retrieve())
+		const response = await commerce.cart.retrieve()
+		setCart(response)
 	}
 
 	const handleAddToCart = async (productId, quantity) => {
-		const { cart } = await commerce.cart.add(productId, quantity)
+		const response = await commerce.cart.add(productId, quantity)
 
-		setCart(cart)
+		setCart(response.cart)
 	}
 
 	const handleUpdateQty = async (productId, quantity) => {
-		const { cart } = await commerce.cart.update(productId, { quantity })
+		const response = await commerce.cart.update(productId, { quantity })
 
-		setCart(cart)
+		setCart(response.cart)
 	}
 
 	const handleRemoveFromCart = async (productId) => {
-		const { cart } = await commerce.cart.remove(productId)
+		const response = await commerce.cart.remove(productId)
 
-		setCart(cart)
+		setCart(response.cart)
 	}
 
 	const handleEmptyCart = async () => {
-		const { cart } = await commerce.cart.empty()
+		const response = await commerce.cart.empty()
 
-		setCart(cart)
+		setCart(response.cart)
 	}
 
 	useEffect(() => {
@@ -48,10 +50,12 @@ function App() {
 		fetchCart()
 	}, [])
 
+	console.log(cart)
+
 	return (
 		<Router>
 			<div className='App'>
-				<Navbar totalItems={cart?.total_items} />
+				<Navbar totalItems={cart.total_items} />
 				<Routes>
 					<Route path='/' element={<Hero />}></Route>
 					<Route
