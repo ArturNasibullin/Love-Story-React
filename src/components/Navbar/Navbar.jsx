@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { HiMenu, HiX, HiShoppingCart } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 
@@ -16,17 +18,27 @@ const Navbar = ({ totalItems }) => {
 						<img src={images.logo} alt='logo' />
 					</div>
 					<ul className='navbar-links'>
-						{['Главная', 'О нас', 'Блог', 'Магазин', 'Контакты'].map((item) => (
-							<li className='navbar-links__item' key={`link-${item}`}>
-								<a href={`#${item}`}>{item}</a>
-							</li>
-						))}
+						<Link to='/' className='navbar-links__item'>
+							Главная
+						</Link>
+						<Link to='/about' className='navbar-links__item'>
+							О нас
+						</Link>
+						<Link to='/blog' className='navbar-links__item'>
+							Блог
+						</Link>
+						<Link to='/products' className='navbar-links__item'>
+							Магазин
+						</Link>
+						<Link to='/contacts' className='navbar-links__item'>
+							Контакты
+						</Link>
 					</ul>
 					<div className='navbar-cart'>
-						<a href='#'>
+						<Link to='cart'>
 							<HiShoppingCart />
 							<span>корзина</span>
-						</a>
+						</Link>
 						<span className='navbar-cart_badge'>{totalItems}</span>
 					</div>
 					<div className='navbar-menu'>

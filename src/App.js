@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import { Navbar, HeroSlider, Advantages, About, Trand, Promo, Contacts, Products, Cart } from './components'
+import { Navbar, Hero, Products, Cart } from './components'
 
 import { commerce } from './lib/commerce'
 import './styles/style.sass'
@@ -19,9 +20,27 @@ function App() {
 	}
 
 	const handleAddToCart = async (productId, quantity) => {
-		const item = await commerce.cart.add(productId, quantity)
+		const { cart } = await commerce.cart.add(productId, quantity)
 
-		setCart(item)
+		setCart(cart)
+	}
+
+	const handleUpdateQty = async (productId, quantity) => {
+		const { cart } = await commerce.cart.update(productId, { quantity })
+
+		setCart(cart)
+	}
+
+	const handleRemoveFromCart = async (productId) => {
+		const { cart } = await commerce.cart.remove(productId)
+
+		setCart(cart)
+	}
+
+	const handleEmptyCart = async () => {
+		const { cart } = await commerce.cart.empty()
+
+		setCart(cart)
 	}
 
 	useEffect(() => {
@@ -30,21 +49,25 @@ function App() {
 	}, [])
 
 	return (
-		<div className='App'>
-			<Navbar totalItems={cart.total_items} />
-			<main className='hero'>
-				<div className='container'>
-					<HeroSlider />
-				</div>
-			</main>
-			<Cart cart={cart} />
-			<Advantages />
-			<Products products={products} onAddToCart={handleAddToCart} />
-			<About />
-			<Trand />
-			<Promo />
-			<Contacts />
-		</div>
+		<Router>
+			<div className='App'>
+				<Navbar totalItems={cart?.total_items} />
+				<Routes>
+					<Route path='/' element={<Hero />}></Route>
+					<Route
+						path='/cart'
+						element={
+							<Cart
+								cart={cart}
+								handleUpdateQty={handleUpdateQty}
+								handleRemoveFromCart={handleRemoveFromCart}
+								handleEmptyCart={handleEmptyCart}
+							/>
+						}></Route>
+					<Route path='/products' element={<Products products={products} onAddToCart={handleAddToCart} />}></Route>
+				</Routes>
+			</div>
+		</Router>
 	)
 }
 

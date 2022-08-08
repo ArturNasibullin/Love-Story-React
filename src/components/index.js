@@ -1,5 +1,5 @@
-export { default as HeroSlider } from './HeroSlider/HeroSlider'
 export { default as Navbar } from './Navbar/Navbar'
+export { default as Hero } from './Hero/Hero'
 export { default as Advantages } from './Advantages/Advantages'
 export { default as About } from './About/About'
 export { default as Trand } from './Trand/Trand'
