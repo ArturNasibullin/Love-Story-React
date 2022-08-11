@@ -11,30 +11,29 @@ function App() {
 	const [cart, setCart] = useState({})
 
 	const fetchProducts = async () => {
-		const response = await commerce.products.list()
+		const { data } = await commerce.products.list()
 
-		setProducts((response && response.data) || [])
+		setProducts(data)
 	}
 
 	const fetchCart = async () => {
-		const response = await commerce.cart.retrieve()
-		setCart(response)
+		setCart(await commerce.cart.retrieve())
 	}
 
 	const handleAddToCart = async (productId, quantity) => {
-		const response = await commerce.cart.add(productId, quantity)
+		const item = await commerce.cart.add(productId, quantity)
+
+		setCart(item.cart)
+	}
+
+	const handleUpdateCartQty = async (lineItemId, quantity) => {
+		const response = await commerce.cart.update(lineItemId, { quantity })
 
 		setCart(response.cart)
 	}
 
-	const handleUpdateQty = async (productId, quantity) => {
-		const response = await commerce.cart.update(productId, { quantity })
-
-		setCart(response.cart)
-	}
-
-	const handleRemoveFromCart = async (productId) => {
-		const response = await commerce.cart.remove(productId)
+	const handleRemoveFromCart = async (lineItemId) => {
+		const response = await commerce.cart.remove(lineItemId)
 
 		setCart(response.cart)
 	}
@@ -45,12 +44,18 @@ function App() {
 		setCart(response.cart)
 	}
 
+	const refreshCart = async () => {
+		const newCart = await commerce.cart.refresh()
+
+		setCart(newCart)
+	}
+
 	useEffect(() => {
 		fetchProducts()
 		fetchCart()
 	}, [])
 
-	console.log(cart)
+	console.log(products)
 
 	return (
 		<Router>
@@ -63,12 +68,14 @@ function App() {
 						element={
 							<Cart
 								cart={cart}
-								handleUpdateQty={handleUpdateQty}
+								handleUpdateQty={handleUpdateCartQty}
 								handleRemoveFromCart={handleRemoveFromCart}
 								handleEmptyCart={handleEmptyCart}
 							/>
 						}></Route>
-					<Route path='/products' element={<Products products={products} onAddToCart={handleAddToCart} />}></Route>
+					<Route
+						path='/products'
+						element={<Products products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />}></Route>
 				</Routes>
 			</div>
 		</Router>

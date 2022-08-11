@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 import './Cart.sass'
 
-const Cart = ({ cart, handleUpdateQty, handleRemoveFromCart, handleEmptyCart }) => {
-	const EmptyCart = () => (
+const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart }) => {
+	const renderEmptyCart = () => (
 		<h2>
 			У Вас нет товаров в корзине.{' '}
 			<Link to='/' className='text'>
@@ -23,54 +23,54 @@ const Cart = ({ cart, handleUpdateQty, handleRemoveFromCart, handleEmptyCart }) 
 		</div>
 	)
 
-	const FilledCart = () => (
+	if (!cart.line_items) return 'Loading'
+
+	const renderCart = () => (
 		<>
 			<div className='cart-grid'>
-				{cart?.line_items.map((item) => (
-					<>
-						<div className='cart-item' key={item.id}>
-							<img src={item.image.url} alt={item.name} className='cart-item__img' />
-							<p className='cart-item__name text'> {item.name}</p>
-							<div className='cart-item__quantity'>
-								<p className='cart-item__quantity-text text'>Колличество:</p>
-								<button
-									type='button'
-									className='btn btn--quantity  btn--quantity-cart'
-									onClick={() => handleUpdateQty(item.id, item.quantity - 1)}>
-									<HiOutlineMinus />
-								</button>
-								<p className='cart-item__quantity-num'>{item.quantity} </p>
-								<button
-									type='button'
-									className='btn btn--quantity btn--quantity-cart'
-									onClick={() => handleUpdateQty(item.id, item.quantity + 1)}>
-									<HiOutlinePlus />
-								</button>
-							</div>
-							<div className='cart-item__price'>
-								<p className='cart-item__price-text text'>Цена</p>
-								<p className='cart-item__price-num text'>₽ {item.price.raw}</p>
-							</div>
-							<div className='cart-item__buttons'>
-								<button type='button' className=''>
-									<HiOutlineHeart />
-								</button>
-								<button type='button' onClick={() => handleRemoveFromCart(item.id)}>
-									<HiTrash />
-								</button>
-							</div>
+				{cart.line_items.map((item) => (
+					<div className='cart-item' key={item.id}>
+						<img src={item.image.url} alt={item.name} className='cart-item__img' />
+						<p className='cart-item__name text'> {item.name}</p>
+						<div className='cart-item__quantity'>
+							<p className='cart-item__quantity-text text'>Колличество:</p>
+							<button
+								type='button'
+								className='btn btn--quantity  btn--quantity-cart'
+								onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>
+								<HiOutlineMinus />
+							</button>
+							<p className='cart-item__quantity-num'>{item.quantity} </p>
+							<button
+								type='button'
+								className='btn btn--quantity btn--quantity-cart'
+								onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>
+								<HiOutlinePlus />
+							</button>
 						</div>
-					</>
+						<div className='cart-item__price'>
+							<p className='cart-item__price-text text'>Цена</p>
+							<p className='cart-item__price-num text'>₽ {item.price.raw}</p>
+						</div>
+						<div className='cart-item__buttons'>
+							<button type='button' className=''>
+								<HiOutlineHeart />
+							</button>
+							<button type='button' onClick={() => handleRemoveFromCart(item.id)}>
+								<HiTrash />
+							</button>
+						</div>
+					</div>
 				))}
 			</div>
 		</>
 	)
 
-	if (!cart.line_items) return 'Loading...'
+	// if (error) return {error.message}
 
 	return (
 		<section className='cart'>
-			<div className='container'>{cart.line_items.lenght ? <EmptyCart /> : <FilledCart />}</div>
+			<div className='container'>{!cart.line_items.length ? renderEmptyCart() : renderCart()}</div>
 		</section>
 	)
 }

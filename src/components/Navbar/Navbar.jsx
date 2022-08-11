@@ -41,27 +41,7 @@ const Navbar = ({ totalItems }) => {
 						</Link>
 						<span className='navbar-cart_badge'>{totalItems}</span>
 					</div>
-					<div className='navbar-menu'>
-						<HiMenu
-							onClick={() => {
-								setToggle(true)
-							}}
-						/>
-						{toggle && (
-							<motion.div whileInView={{ x: [100, 0] }} transition={{ duration: 0.8, ease: 'easeOut' }}>
-								<HiX onClick={() => setToggle(false)} />
-								<ul>
-									{['Главная', 'О нас', 'Блог', 'Магазин', 'Контакты'].map((item) => (
-										<li key={item}>
-											<a href={`#${item}`} onClick={() => setToggle(false)}>
-												{item}
-											</a>
-										</li>
-									))}
-								</ul>
-							</motion.div>
-						)}
-					</div>
+					<div className='navbar-menu'></div>
 				</div>
 			</div>
 		</nav>

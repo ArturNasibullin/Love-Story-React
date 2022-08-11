@@ -4,6 +4,8 @@ import Product from './Product/Product'
 import './Products.sass'
 
 const Products = ({ products, onAddToCart }) => {
+	if (!products.length) return <p>Loading...</p>
+
 	return (
 		<section className='products'>
 			<div className='container'>
