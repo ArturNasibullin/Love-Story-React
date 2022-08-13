@@ -7,4 +7,10 @@
 	--colors__secondary: #ded7cb;
 	--colors__border: #dbb5ae;
 	--font__corm: 'Cormorant Garamond';
+
+	--hue: 223;
+	--bg: hsl(var(--hue), 10%, 90%);
+	--fg: hsl(var(--hue), 10%, 10%);
+	--primary: hsl(var(--hue), 90%, 55%);
+	--trans-dur: 0.3s;
 }

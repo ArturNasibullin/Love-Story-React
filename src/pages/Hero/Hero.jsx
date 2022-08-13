@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 
-import { Advantages, About, Trand, Promo, Contacts } from '../../components'
+import { Advantages, About, Trand, Promo, Contacts } from '../../components/'
 import { urlFor, client } from '../../lib/client'
 
 import 'swiper/css'

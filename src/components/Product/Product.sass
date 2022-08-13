@@ -7,9 +7,8 @@
 	&-img
 		position: relative
 		grid-column: 1 / span 2
-		grid-row: 1/2
 		width: 25rem
-		height: 35rem
+		max-height: 25rem
 		img
 			height: 100%
 			margin: 0 auto
@@ -61,6 +60,7 @@
 				display: inline-block
 				padding: 0 35px
 				margin: 0 auto
+				cursor: pointer
 				letter-spacing: 0.2em
 				border: 1px solid transparent
 				transition: all 300ms ease-in-out
@@ -82,7 +82,7 @@
 	&-description
 	&-old_price
 		grid-row: 3/4
-		grid-column: 1
+		grid-column: 2
 		margin: 1.2rem 0rem 1.2rem 1.5rem
 		text-decoration: line-through
 		color: #bb0606
@@ -94,9 +94,11 @@
 			margin-bottom: 30px
 	&-new_price
 		grid-row: 3/4
-		grid-column: 2
-		place-self: center end
-		margin: 1.6rem 1.5rem 1.6rem 0
+		grid-column: 1
+		place-self: center start
+		// margin: 1.6rem 1.5rem 1.6rem 0
+		margin: 1.2rem 0rem 1.2rem 1.5rem
+
 		color: var(--colors__primary)
 		font-size: 2rem
 		line-height: 1.2
